@@ -10,6 +10,7 @@ public:
 	dot E;
 	std::vector<double> W;
 	ray(dot _B, dot _E);
+	ray(std::vector<double> _B, std::vector<double> _E);
 	ray();
 	~ray();
 };
