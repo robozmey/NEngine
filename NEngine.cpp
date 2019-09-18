@@ -1,5 +1,5 @@
 #include "NEngine.h"
-
+#pragma optimize( "", on)
 
 int NEngine::trace(ray Ray, poly Poly) {
 	double a, b, c, d, e, f, g, h, i, l, o, p, q, la_1, la_2, la;
@@ -80,7 +80,7 @@ void NEngine::draw() {
 			int bl = 3;
 			for (int i1 = 0; i1 < bl; i1++) {
 				for (int j1 = 0; j1 < bl; j1++) {
-					SetPixel(mydc, j * bl + j1, i * bl + i1, color);
+					SetPixel(mydc, j * bl + j1, (height + 0.5) * bl - i * bl - i1, color);
 				}
 			}
 
@@ -96,8 +96,8 @@ NEngine::NEngine(int _dims)
 {
 	dims = _dims;
 	width = 80;
-	height = 40;
-	distance = 10;
+	height = 60;
+	distance = 40;
 }
 
 
