@@ -1,5 +1,2 @@
-﻿  NEngine.cpp
-c:\users\mymyr\source\repos\nengine\nengine.cpp(83): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
-  main.cpp
-  Создание кода...
-  NEngine.vcxproj -> C:\Users\Mymyr\source\repos\NEngine\Debug\NEngine.exe
+﻿  main.cpp
+  NEngine.vcxproj -> C:\Users\User\Documents\GitHub\NEngine\Debug\NEngine.exe
