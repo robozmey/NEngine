@@ -4,19 +4,21 @@
 int NEngine::trace(ray Ray, poly Poly) {
 	double a, b, c, d, e, f, g, h, i, l, o, p, q, la_1, la_2, la;
 
-	a = Ray.K[0] / Poly.K1[0];
-	b = -Poly.K2[0] / Poly.K1[0];
-	c = (Ray.M[0] + Poly.M[0]) / Poly.K1[0];
-	d = b * Poly.K1[1] + Poly.K2[1];
-	e = Ray.K[1] - a * Poly.K1[1];
-	f = Ray.M[1] - Poly.M[1] - Poly.K1[1] * c;
+	int x = 0;
+	while (Poly.K1[x % 3] == 0) x++;
+	a = Ray.K[x % 3] / Poly.K1[x%3];
+	b = -Poly.K2[x % 3] / Poly.K1[x % 3];
+	c = (Ray.M[x % 3] + Poly.M[x % 3]) / Poly.K1[x % 3];
+	d = b * Poly.K1[(x + 1) % 3] + Poly.K2[(x+1) % 3];
+	e = Ray.K[(x + 1) % 3] - a * Poly.K1[(x + 1) % 3];
+	f = Ray.M[(x + 1) % 3] - Poly.M[(x + 1) % 3] - Poly.K1[(x + 1) % 3] * c;
 	g = a + b * e / d;
 	h = b * f / d + c;
-	i = Poly.K1[2] * g / Ray.K[2];
-	l = Poly.K1[2] * h / Ray.K[2];
-	o = Poly.K2[2] * e / Ray.K[2] / d;
-	p = Poly.K2[2] * f / Ray.K[2] / d;
-	q = (Poly.M[2] - Ray.M[2]) / Ray.K[2];
+	i = Poly.K1[(x + 2) % 3] * g / Ray.K[(x + 2) % 3];
+	l = Poly.K1[(x + 2) % 3] * h / Ray.K[(x + 2) % 3];
+	o = Poly.K2[(x + 2) % 3] * e / Ray.K[(x + 2) % 3] / d;
+	p = Poly.K2[(x + 2) % 3] * f / Ray.K[(x + 2) % 3] / d;
+	q = (Poly.M[(x + 2) % 3] - Ray.M[(x + 2) % 3]) / Ray.K[(x + 2) % 3];
 
 	la = (l + p + q) / (1 - i - o);
 	la_2 = e / d * la + f / d;
@@ -32,19 +34,21 @@ int NEngine::trace(ray Ray, poly Poly) {
 double NEngine::cross(ray Ray, poly Poly) {
 	double a, b, c, d, e, f, g, h, i, l, o, p, q, la_1, la_2, la;
 
-	a = Ray.K[0] / Poly.K1[0];
-	b = -(Poly.K1[0] == 0 ? 0 :  Poly.K2[0] / Poly.K1[0]);
-	c = (Poly.K1[0] == 0 ? 0 : (Ray.M[0] + Poly.M[0]) / Poly.K1[0]);
-	d = b * Poly.K1[1] + Poly.K2[1];
-	e = Ray.K[1] - a * Poly.K1[1];
-	f = Ray.M[1] - Poly.M[1] - Poly.K1[1] * c;
-	g = a + (d == 0 ? 0 : b * e / d);
-	h = b * (d == 0 ? 0 : f / d) + c;
-	i = (Ray.K[2] == 0 ? 0 : Poly.K1[2] * g / Ray.K[2]);
-	l = (Ray.K[2] == 0 ? 0 : Poly.K1[2] * h / Ray.K[2]);
-	o = (Ray.K[2] == 0 || d == 0 ? 0 : Poly.K2[2] * e / Ray.K[2] / d);
-	p = (Ray.K[2] == 0 || d == 0 ? 0 : Poly.K2[2] * f / Ray.K[2] / d);
-	q = (Ray.K[2] == 0 ? 0 :(Poly.M[2] - Ray.M[2]) / Ray.K[2]);
+	int x = 0;
+	while (Poly.K1[x % 3] == 0) x++;
+	a = Ray.K[x % 3] / Poly.K1[x % 3];
+	b = -Poly.K2[x % 3] / Poly.K1[x % 3];
+	c = (Ray.M[x % 3] + Poly.M[x % 3]) / Poly.K1[x % 3];
+	d = b * Poly.K1[(x + 1) % 3] + Poly.K2[(x + 1) % 3];
+	e = Ray.K[(x + 1) % 3] - a * Poly.K1[(x + 1) % 3];
+	f = Ray.M[(x + 1) % 3] - Poly.M[(x + 1) % 3] - Poly.K1[(x + 1) % 3] * c;
+	g = a + b * e / d;
+	h = b * f / d + c;
+	i = Poly.K1[(x + 2) % 3] * g / Ray.K[(x + 2) % 3];
+	l = Poly.K1[(x + 2) % 3] * h / Ray.K[(x + 2) % 3];
+	o = Poly.K2[(x + 2) % 3] * e / Ray.K[(x + 2) % 3] / d;
+	p = Poly.K2[(x + 2) % 3] * f / Ray.K[(x + 2) % 3] / d;
+	q = (Poly.M[(x + 2) % 3] - Ray.M[(x + 2) % 3]) / Ray.K[(x + 2) % 3];
 
 	la =  (l + p + q) / (1 - i - o);
 	la_2 = (d == 0 ? 0 : e / d) * la + (d == 0 ? 0 : f / d);
