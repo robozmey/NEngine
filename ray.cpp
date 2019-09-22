@@ -19,6 +19,7 @@ ray::ray(std::vector<double> _B, std::vector<double> _E) {
 	K = _E;
 	for (int i = 0; i < K.size(); i++) {
 		K[i] -= M[i];
+		if (K[i] == 0) K[i] = 0.000000001;
 	}
 }
 

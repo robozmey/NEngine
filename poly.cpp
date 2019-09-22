@@ -24,6 +24,8 @@ poly::poly(std::vector<double> _A, std::vector<double> _B, std::vector<double> _
 	for (int i = 0; i < M.size(); i++) {
 		K1[i] -= M[i];
 		K2[i] -= M[i];
+		if (K1[i] == 0) K1[i] = 0.0000000002;
+		if (K2[i] == 0) K2[i] = -0.0000000002;
 	}
 }
 

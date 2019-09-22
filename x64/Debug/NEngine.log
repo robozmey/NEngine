@@ -1,2 +1,8 @@
 ﻿  NEngine.cpp
+C:\Users\Mymyr\source\repos\NEngine\NEngine.h(29,26): warning C4305:  инициализация: усечение из "double" в "float"
+C:\Users\Mymyr\source\repos\NEngine\NEngine.cpp(94,17): warning C4244:  =: преобразование "double" в "int", возможна потеря данных
+  main.cpp
+C:\Users\Mymyr\source\repos\NEngine\NEngine.cpp(95,44): warning C4244:  =: преобразование "double" в "int", возможна потеря данных
+  Создание кода...
+C:\Users\Mymyr\source\repos\NEngine\NEngine.h(29,26): warning C4305:  инициализация: усечение из "double" в "float"
   NEngine.vcxproj -> C:\Users\Mymyr\source\repos\NEngine\x64\Debug\NEngine.exe

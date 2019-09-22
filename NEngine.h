@@ -25,12 +25,21 @@ public:
 
 	int k_obj=0;
 
-	double distance;
-	int trace(ray Ray, poly Poly);
-	double cross(ray Ray, poly Poly);
+	float distance;
+	float fov = M_PI * 2 / 3;
+	void trace(const ray &Ray, const poly &Poly, COLORREF& c_color, double& r);
+	//double cross(ray Ray, poly Poly);
 
-	int height;
-	int width;
+	int height = 64;
+	int width  = 128;
+
+	int h_x = 10;
+	int w_x = 10;
+
+	double cam_x = 1;
+	double cam_y = 0;
+	double cam_z = 0;
+	double cam_az = -0*M_PI;
 
 	void draw();
 
