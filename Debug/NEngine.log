@@ -1,15 +1,1 @@
-﻿  dot.cpp
-  main.cpp
-  NEngine.cpp
-C:\Users\Mymyr\source\repos\NEngine\NEngine.cpp(87,63): warning C4244:  аргумент: преобразование "double" в "int", возможна потеря данных
-  poly.cpp
-C:\Users\Mymyr\source\repos\NEngine\NEngine.cpp(87,28): warning C4244:  аргумент: преобразование "double" в "int", возможна потеря данных
-C:\Users\Mymyr\source\repos\NEngine\poly.cpp(10,20): warning C4018:  <: несоответствие типов со знаком и без знака
-  ray.cpp
-C:\Users\Mymyr\source\repos\NEngine\poly.cpp(24,20): warning C4018:  <: несоответствие типов со знаком и без знака
-C:\Users\Mymyr\source\repos\NEngine\ray.cpp(10,20): warning C4018:  <: несоответствие типов со знаком и без знака
-  screen.cpp
-  Создание кода...
-C:\Users\Mymyr\source\repos\NEngine\ray.cpp(20,20): warning C4018:  <: несоответствие типов со знаком и без знака
-  LINK : не найден или не выполнена сборка C:\Users\Mymyr\source\repos\NEngine\Debug\NEngine.exe при последней инкрементной компоновке; выполняется полная компоновка
-  NEngine.vcxproj -> C:\Users\Mymyr\source\repos\NEngine\Debug\NEngine.exe
+﻿  NEngine.vcxproj -> C:\Users\Mymyr\source\repos\NEngine\Debug\NEngine.exe

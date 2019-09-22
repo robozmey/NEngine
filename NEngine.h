@@ -4,6 +4,7 @@
 #include"poly.h"
 #include"screen.h"
 #include<set>
+#include"SDL.h"
 
 
 
@@ -15,9 +16,12 @@ public:
 	std::set<int> Objs;
 	screen Screen;
 
-	HWND myconsole;
+	//HWND myconsole;
 
-	HDC mydc;
+	//HDC mydc;
+
+	SDL_Window* window;
+	SDL_Renderer* renderer;
 
 	int k_obj=0;
 

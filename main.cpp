@@ -1,7 +1,7 @@
 #include<iostream>
 #include"NEngine.h"
 #pragma optimize( "", on)
-int main() {
+int main(int arg, char** args) {
 	vector <int> a[5];
 	a[0] = { 0, 0, 0, 0, 0 };
 	a[1] = { 0, 0, 0, 0, 0 };
@@ -22,10 +22,10 @@ int main() {
 				//i += 1;
 				i *= -2;
 				j *= -2;
-				nengine.Polys.push_back(poly({ i - 1, j + 1, 2 }, { i + 1, j - 1, 2 }, { i + 1, j + 1, 2 }, RGB(0, 0, 255)));
-				nengine.Polys.push_back(poly({ i - 1, j - 1, 2 }, { i + 1, j - 1, 2 }, { i - 1, j + 1, 2 }, RGB(0, 128, 255)));
-				nengine.Polys.push_back(poly({ i - 1, j + 1, -2 }, { i + 1, j - 1, -2 }, { i + 1, j + 1, -2 }, RGB(0, 0, 255)));
-				nengine.Polys.push_back(poly({ i - 1, j - 1, -2 }, { i + 1, j - 1, -2 }, { i - 1, j + 1, -2 }, RGB(0, 128, 255)));
+				nengine.Polys.push_back(poly({ i - 1, j + 1, 1 }, { i + 1, j - 1, 1 }, { i + 1, j + 1, 1 }, RGB(0, 0, 255)));
+				nengine.Polys.push_back(poly({ i - 1, j - 1, 1 }, { i + 1, j - 1, 1 }, { i - 1, j + 1, 1 }, RGB(0, 128, 255)));
+				nengine.Polys.push_back(poly({ i - 1, j + 1, -1 }, { i + 1, j - 1, -1 }, { i + 1, j + 1, -1 }, RGB(0, 0, 255)));
+				nengine.Polys.push_back(poly({ i - 1, j - 1, -1 }, { i + 1, j - 1, -1 }, { i - 1, j + 1, -1 }, RGB(0, 128, 255)));
 				//nengine.Polys.push_back(poly({ i - 1, j - 1, -2 }, { i + 1, j - 1, -2 }, { i - 1, j + 1, -2 }, RGB(0, 128, 255)));
 				i /= -2;
 				j /= -2;
@@ -34,8 +34,8 @@ int main() {
 			else {
 				i *= -2;
 				j *= -2;
-				nengine.Polys.push_back(poly({ i - 1.01, j + 1.02, 2.03 }, { i - 1, j + 1, -2 }, { i - 1.07, j - 1.08, -2.09 }, RGB(0, 128, 0)));
-				nengine.Polys.push_back(poly({ i - 1.01, j + 1.02, 2.03 }, { i - 1, j - 1, 2}, { i - 1, j - 1, -2 }, RGB(0, 255, 0)));
+				nengine.Polys.push_back(poly({ i - 1.00001, j + 1.00002, 1.00003 }, { i - 1, j + 1, -2 }, { i - 1.00007, j - 1.00008, -1.00009 }, RGB(0, 128, 0)));
+				nengine.Polys.push_back(poly({ i - 1.00001, j + 1.00002, 1.00003 }, { i - 1, j - 1,  2 }, { i - 1.00007, j - 1.00008, -1.00009 }, RGB(0, 255, 0)));
 
 				i /= -2;
 				j /= -2;
