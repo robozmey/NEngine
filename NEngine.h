@@ -27,13 +27,13 @@ public:
 	void trace(const ray &Ray, const poly &Poly, SDL_Color& c_color, double& r);
 	//double cross(ray Ray, poly Poly);
 
-	int height = 64;
-	int width  = 128;
+	int height = 50;
+	int width  = 100;
 
 	int h_x = 10;
 	int w_x = 10;
 
-	double cam_x = 1;
+	double cam_x = 3;
 	double cam_y = 0;
 	double cam_z = 0;
 	double cam_az = -0*M_PI;

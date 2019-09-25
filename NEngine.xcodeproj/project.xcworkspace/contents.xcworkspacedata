@@ -2,39 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:../dot.cpp">
+      location = "group:/Users/vladimir/Documents/NEngine/models.h">
    </FileRef>
    <FileRef
-      location = "group:../dot.h">
-   </FileRef>
-   <FileRef
-      location = "group:../main.cpp">
-   </FileRef>
-   <FileRef
-      location = "group:../NEngine.cpp">
-   </FileRef>
-   <FileRef
-      location = "group:../NEngine.h">
-   </FileRef>
-   <FileRef
-      location = "group:../poly.cpp">
-   </FileRef>
-   <FileRef
-      location = "group:../poly.h">
-   </FileRef>
-   <FileRef
-      location = "group:../ray.cpp">
-   </FileRef>
-   <FileRef
-      location = "group:../ray.h">
-   </FileRef>
-   <FileRef
-      location = "group:../screen.cpp">
-   </FileRef>
-   <FileRef
-      location = "group:../screen.h">
-   </FileRef>
-   <FileRef
-      location = "self:NEngine.xcodeproj">
+      location = "self:">
    </FileRef>
 </Workspace>

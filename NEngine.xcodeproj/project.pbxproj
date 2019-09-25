@@ -14,6 +14,7 @@
 		E75AA221233B35B300000F3D /* dot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E75AA21A233B35B300000F3D /* dot.cpp */; };
 		E75AA222233B35B300000F3D /* screen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E75AA21C233B35B300000F3D /* screen.cpp */; };
 		E75AA225233B5CE000000F3D /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E75AA224233B5CDF00000F3D /* SDL2.framework */; };
+		E75AA22B233B73F600000F3D /* models.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E75AA229233B73F600000F3D /* models.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -42,6 +43,8 @@
 		E75AA21B233B35B300000F3D /* poly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = poly.h; sourceTree = "<group>"; };
 		E75AA21C233B35B300000F3D /* screen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = screen.cpp; sourceTree = "<group>"; };
 		E75AA224233B5CDF00000F3D /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
+		E75AA229233B73F600000F3D /* models.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = models.cpp; sourceTree = "<group>"; };
+		E75AA22C233B75BE00000F3D /* models.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = models.h; path = /Users/vladimir/Documents/NEngine/models.h; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +62,8 @@
 		E75AA1FF233B353A00000F3D = {
 			isa = PBXGroup;
 			children = (
+				E75AA22C233B75BE00000F3D /* models.h */,
+				E75AA229233B73F600000F3D /* models.cpp */,
 				E75AA21A233B35B300000F3D /* dot.cpp */,
 				E75AA213233B35B200000F3D /* dot.h */,
 				E75AA217233B35B300000F3D /* main.cpp */,
@@ -152,6 +157,7 @@
 				E75AA222233B35B300000F3D /* screen.cpp in Sources */,
 				E75AA221233B35B300000F3D /* dot.cpp in Sources */,
 				E75AA21E233B35B300000F3D /* poly.cpp in Sources */,
+				E75AA22B233B73F600000F3D /* models.cpp in Sources */,
 				E75AA220233B35B300000F3D /* ray.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

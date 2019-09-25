@@ -63,7 +63,7 @@ void NEngine::draw() {
     for (i = 0.0000; i < height; i++) {
         for (j = 0.0000; j < width; j++) {
             nRay = ray({ cam_x, cam_y, 0 }, { cam_x + distance * cos(cam_az) + (j - width / 2) * sin(cam_az),
-                                                  cam_y + distance * sin(cam_az) + (j - width / 2) * cos(cam_az),
+                                                  cam_y + distance * sin(cam_az) - (j - width / 2) * cos(cam_az),
                                                   cam_z + i - height / 2 });
             mn = 1000;
             is_found = 0;
@@ -75,7 +75,9 @@ void NEngine::draw() {
                     is_found = 1;
                 }
             }
-
+            if(!is_found){
+                is_found = true; color = { 0, 0, 0 };
+            }
 
             if (is_found) {
                 SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, 255);
