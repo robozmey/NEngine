@@ -1,21 +1,22 @@
 #include "NEngine.h"
 #include<algorithm>
+#include<iostream>
 
 
-#pragma optimize( "", on)
+#pragma optimize( "-O3")
 
 double a, b, c, d, e, f, g, h, i, l, o, p, q, la_1, la_2, la;
 
 vector <int> x = { 0, 1, 2 };
 
-COLORREF color = RGB(128, 10, 10);
-COLORREF c_color;
+SDL_Color color ={128, 10, 10};
+SDL_Color c_color;
 double r;
 double mn = 1000;
 bool is_found;
-SDL_Rect rect;
 
-void NEngine::trace(const ray &Ray,const poly &Poly, COLORREF &c_color, double &r) {
+
+void NEngine::trace(const ray &Ray,const poly &Poly, SDL_Color &c_color, double &r) {
 	//while (true) {
 	//next_permutation(x.begin(), x.end());
 	//if (Poly.K1[x[0]] == 0) cout << x[0];
@@ -50,7 +51,7 @@ void NEngine::trace(const ray &Ray,const poly &Poly, COLORREF &c_color, double &
 		r = la;
 	}
 	else {
-		c_color = 0;
+        c_color = {0, 0, 0};
 		r = -1;
 	}
 }
@@ -59,72 +60,66 @@ void NEngine::trace(const ray &Ray,const poly &Poly, COLORREF &c_color, double &
 void NEngine::draw() {
 	double i, j;
 	ray nRay;
-	while (true) {
-		
-		for (i = 0.0001; i < height; i++) {
-			for (j = 0.0001; j < width; j++) {
-				nRay = ray({ cam_x, cam_y, 0 }, { cam_x + distance * cos(cam_az) + (j - width / 2) * sin(cam_az),
-													  cam_y + distance * sin(cam_az) + (j - width / 2) * cos(cam_az), 
-													  cam_z + i - height / 2 });
-				mn = 1000;
-				is_found = 0;
-				for (auto &pl : Polys) {
-					
-					
-					trace(nRay, pl, c_color, r);
-					//double r =
-					if (r > 0 && r < mn) {
-						mn = r;
-						color = c_color;
-						is_found = 1;
-					}
-				}
-				//cout << (i < 1 && j < 1 ? "s" : "");
-			//	int bl = 1;
-
-				if (is_found) {
-					//for (int i1 = 0; i1 < h_x; i1++) {
-					//	for (int j1 = 0; j1 < w_x; j1++) {
-					SDL_SetRenderDrawColor(renderer, GetRValue(color), GetGValue(color), GetBValue(color), 255);
-
-					//SDL_RenderClear(renderer);
-					//SDL_RenderDrawPoint(renderer, i, i);
-
-					
-					rect.x = j * w_x;
-					rect.y = height * h_x - i * h_x - h_x + 1;
-					rect.w = w_x;
-					rect.h = h_x;
-
-					SDL_RenderFillRect(renderer, &rect);
-
-					//SDL_RenderDrawPoint(renderer, int(j * w_x + j1), int((height)* h_x - i * h_x - i1));
-					SDL_RenderPresent(renderer);
-					//SetPixel(mydc, j * bl + j1, (height) * bl - i * bl - i1, color);
+    for (i = 0.0000; i < height; i++) {
+        for (j = 0.0000; j < width; j++) {
+            nRay = ray({ cam_x, cam_y, 0 }, { cam_x + distance * cos(cam_az) + (j - width / 2) * sin(cam_az),
+                                                  cam_y + distance * sin(cam_az) + (j - width / 2) * cos(cam_az),
+                                                  cam_z + i - height / 2 });
+            mn = 1000;
+            is_found = 0;
+            for (auto &pl : Polys) {
+                trace(nRay, pl, c_color, r);
+                if (r > 0 && r < mn) {
+                    mn = r;
+                    color = c_color;
+                    is_found = 1;
+                }
+            }
 
 
-				}
-
-				//ReleaseDC(myconsole, mydc);
-				//nengine.Screen.setpixel(i, j, color);
-				//cout << color;
-			}
-		}
-	}
-	//ReleaseDC(myconsole, mydc);
+            if (is_found) {
+                SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, 255);
+                SDL_Rect rect;
+                rect.x = j * w_x;
+                rect.y = i * h_x;
+                rect.w = w_x;
+                rect.h = h_x;
+                SDL_RenderFillRect(renderer, &rect);
+            }
+        }
+    }
+    
+    SDL_RenderPresent(renderer);
 }
 
 NEngine::NEngine(int _dims)
 {
+    
+    SDL_Window * window = nullptr;
+    
+  //
 	
 	dims = _dims;
 
 	distance = width/2 / atan(fov);
 
+    SDL_Init(SDL_INIT_VIDEO);
 
-	SDL_Init(SDL_INIT_EVERYTHING);
-	window = SDL_CreateWindow("title", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width * w_x, height * h_x, SDL_WINDOW_SHOWN);
+	//SDL_Init(SDL_INIT_EVERYTHING);
+	window = SDL_CreateWindow("title", 0, 0, width * w_x, height * h_x, SDL_WINDOW_SHOWN);
+   // auto screenSurface = SDL_GetWindowSurface( window );
 	renderer = SDL_CreateRenderer(window, -1, 0);
+    
+    if (window == NULL) {
+       // 25
+        // In the case that the window could not be made...
+       // 26
+        std::cout << "Could not create window: %s\n" << SDL_GetError();
+      //  27
+        return;
+       // 28
+    }
+
 	//SDL_RenderDrawPoint(renderer,100, 100);
 	//SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
 
@@ -133,6 +128,18 @@ NEngine::NEngine(int _dims)
 	//SDL_RenderPresent(renderer);
 
 	//SDL_Delay(3000);
+    bool isquit = false;
+    SDL_Event event;
+    
+    //SDL_Delay(1000);
+    while (!isquit) {
+        if (SDL_PollEvent( & event)) {
+            if (event.type == SDL_QUIT) {
+                isquit = true;
+            }
+        }
+    }
+
 
 }
 

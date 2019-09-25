@@ -23,10 +23,10 @@ int main(int arg, char** args) {
 				//i += 1;
 				i *= -2;
 				j *= -2;
-				nengine.Polys.push_back(poly({ i - 1, j + 1, 1 }, { i + 1, j - 1, 1 }, { i + 1, j + 1, 1 }, RGB(0, 0, 255)));
-				nengine.Polys.push_back(poly({ i - 1, j - 1, 1 }, { i + 1, j - 1, 1 }, { i - 1, j + 1, 1 }, RGB(0, 0, 128)));
-				nengine.Polys.push_back(poly({ i - 1, j + 1, -1 }, { i + 1, j - 1, -1 }, { i + 1, j + 1, -1 }, RGB(0, 0, 255)));
-				nengine.Polys.push_back(poly({ i - 1, j - 1, -1 }, { i + 1, j - 1, -1 }, { i - 1, j + 1, -1 }, RGB(0, 0, 128)));
+                nengine.Polys.push_back(poly({ i - 1, j + 1, 1 }, { i + 1, j - 1, 1 }, { i + 1, j + 1, 1 }, {0, 0, 255}));
+                nengine.Polys.push_back(poly({ i - 1, j - 1, 1 }, { i + 1, j - 1, 1 }, { i - 1, j + 1, 1 }, {0, 0, 128}));
+                nengine.Polys.push_back(poly({ i - 1, j + 1, -1 }, { i + 1, j - 1, -1 }, { i + 1, j + 1, -1 }, {0, 0, 255}));
+                nengine.Polys.push_back(poly({ i - 1, j - 1, -1 }, { i + 1, j - 1, -1 }, { i - 1, j + 1, -1 }, {0, 0, 128}));
 				//nengine.Polys.push_back(poly({ i - 1, j - 1, -2 }, { i + 1, j - 1, -2 }, { i - 1, j + 1, -2 }, RGB(0, 128, 255)));
 				i /= -2;
 				j /= -2;
@@ -35,20 +35,20 @@ int main(int arg, char** args) {
 			else {
 				i *= -2;
 				j *= -2;
-				nengine.Polys.push_back(poly({ i - 1, j + 1, 1 }, { i - 1, j + 1, -1 }, { i - 1, j - 1, -1 }, RGB(0, 128, 0)));
-				nengine.Polys.push_back(poly({ i - 1, j + 1, 1 }, { i - 1, j - 1,  1 }, { i - 1, j - 1, -1 }, RGB(0, 255, 0)));
+                nengine.Polys.push_back(poly({ i - 1, j + 1, 1 }, { i - 1, j + 1, -1 }, { i - 1, j - 1, -1 }, {0, 128, 0}));
+                nengine.Polys.push_back(poly({ i - 1, j + 1, 1 }, { i - 1, j - 1,  1 }, { i - 1, j - 1, -1 }, {0, 255, 0}));
 				//nengine.Polys.push_back(poly({ i - 1.00001, j + 1.00002, 1.00003 }, { i - 1, j - 1,  1 }, { i - 1, j - 1.00008, -1.00009 }, RGB(0, 255, 0)));
 
-				nengine.Polys.push_back(poly({ i - 3, j + 1, 1 }, { i - 3, j + 1, -1 }, { i - 3, j - 1, -1 }, RGB(0, 128, 0)));
-				nengine.Polys.push_back(poly({ i - 3, j + 1, 1 }, { i - 3, j - 1,  1 }, { i - 3, j - 1, -1 }, RGB(0, 255, 0)));
+                nengine.Polys.push_back(poly({ i - 3, j + 1, 1 }, { i - 3, j + 1, -1 }, { i - 3, j - 1, -1 }, {0, 128, 0}));
+				nengine.Polys.push_back(poly({ i - 3, j + 1, 1 }, { i - 3, j - 1,  1 }, { i - 3, j - 1, -1 }, {0, 255, 0}));
 
 				//////////////////////////////////////////////////////////
 
-				nengine.Polys.push_back(poly({ i - 3, j + 1, 1 }, { i - 5, j + 1, 1 }, { i - 5, j + 1, -1 }, RGB(255, 0, 0)));
-				nengine.Polys.push_back(poly({ i - 3, j + 1, 1 }, { i - 3, j + 1, -1 }, { i - 5, j + 1, -1 }, RGB(128, 0, 0)));
+                nengine.Polys.push_back(poly({ i - 3, j + 1, 1 }, { i - 5, j + 1, 1 }, { i - 5, j + 1, -1 }, {255, 0, 0}));
+                nengine.Polys.push_back(poly({ i - 3, j + 1, 1 }, { i - 3, j + 1, -1 }, { i - 5, j + 1, -1 }, {128, 0, 0}));
 
-				nengine.Polys.push_back(poly({ i - 3, j - 1, 1 }, { i - 5, j - 1, 1 }, { i - 5, j - 1, -1 }, RGB(255, 0, 0)));
-				nengine.Polys.push_back(poly({ i - 3, j - 1, 1 }, { i - 3, j - 1, -1 }, { i - 5, j - 1, -1 }, RGB(128, 0, 0)));
+                nengine.Polys.push_back(poly({ i - 3, j - 1, 1 }, { i - 5, j - 1, 1 }, { i - 5, j - 1, -1 }, {255, 0, 0}));
+                nengine.Polys.push_back(poly({ i - 3, j - 1, 1 }, { i - 3, j - 1, -1 }, { i - 5, j - 1, -1 }, {128, 0, 0}));
 
 				i /= -2;
 				j /= -2;
@@ -56,8 +56,10 @@ int main(int arg, char** args) {
 			}
 		}
 	}
-	//while (true) {
-	nengine.draw();
-	return 0;
-	//}
+	while (true) {
+        nengine.draw();
+        
+	//return 0;
+	}
+    return 0;
 }

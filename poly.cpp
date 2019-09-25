@@ -1,5 +1,6 @@
 #include "poly.h"
 
+
 poly::poly(dot _A, dot _B, dot _C) {
 	A = _A;
 	B = _B;
@@ -13,7 +14,7 @@ poly::poly(dot _A, dot _B, dot _C) {
 	}
 }
 
-poly::poly(std::vector<double> _A, std::vector<double> _B, std::vector<double> _C, COLORREF _color) {
+poly::poly(std::vector<double> _A, std::vector<double> _B, std::vector<double> _C, SDL_Color _color) {
 	color = _color;
 	A.X = _A;
 	B.X = _B;

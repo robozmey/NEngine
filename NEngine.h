@@ -4,10 +4,7 @@
 #include"poly.h"
 #include"screen.h"
 #include<set>
-#include"SDL.h"
-
-
-
+#include<SDL2/SDL.h>
 
 class NEngine
 {
@@ -27,7 +24,7 @@ public:
 
 	float distance;
 	float fov = M_PI * 2 / 3;
-	void trace(const ray &Ray, const poly &Poly, COLORREF& c_color, double& r);
+	void trace(const ray &Ray, const poly &Poly, SDL_Color& c_color, double& r);
 	//double cross(ray Ray, poly Poly);
 
 	int height = 64;
